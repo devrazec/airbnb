@@ -99,8 +99,7 @@ export function Home() {
             <DropdownMenu
               style={{
                 minWidth: '80px',
-                marginTop: '45px',
-                marginRight: '45px',
+                marginTop: '10px',
                 padding: '0', // reduce top/bottom padding
                 fontSize: '0.9rem', // smaller text
                 borderRadius: '10px', // optional, rounded corners
