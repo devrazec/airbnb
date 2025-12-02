@@ -23,6 +23,9 @@ npm i -S react-leaflet-draw
 
 npm i -D prettier eslint-plugin-prettier eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-react
 
+npm i -S flag-icons
+npm i -D @types/aos
+
 Setup package.json
 
   "scripts": {
@@ -35,21 +38,17 @@ Setup package.json
     "deploy": "gh-pages -d dist"
   },
 
-npm i -S aos
-npm i -S bootstrap
-npm i -S bootstrap-icons
-npm i -S reactstrap
-
 Copy files from other project
 .env
 eslint.config.js
 .prettierrc
 .prettierignore
 
+-- UI
+npm i -S aos bootstrap bootstrap-icons reactstrap
 
-
-
-npm run build
+-- Deploy
+npm run predeploy
 npm run deploy
 
 php -S localhost:8080

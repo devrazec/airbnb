@@ -1,0 +1,32 @@
+.modal-header-centered {
+  display: flex !important;
+  justify-content: center !important;
+  position: relative;
+}
+
+.modal-header-centered .btn-close {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rounded-modal {
+  border-radius: 30px !important;
+  overflow: hidden;
+}
+
+.custom-close-btn {
+  padding: 10; /* remove default padding */
+  margin: 0; /* remove default margin */
+  font-size: 1.8rem; /* smaller close button */
+  width: auto;
+  height: auto;
+  line-height: 1;
+  position: absolute;
+  right: 10px; /* 10px from the right */
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+}
