@@ -21,8 +21,7 @@ npm i -S react-leaflet@next
 npm i -S react-leaflet-cluster
 npm i -S react-leaflet-draw
 
-npm i -D eslint prettier eslint-plugin-prettier eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
-
+npm i -D prettier eslint-plugin-prettier eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-react
 
 Setup package.json
 
@@ -56,3 +55,13 @@ npm run deploy
 php -S localhost:8080
 
 ````
+
+## Web Interface
+
+http://localhost:3000
+
+![Pic1](./src/assets/img/pic1.png)
+
+## Demo
+
+https://devrazec.github.io/airbnb
