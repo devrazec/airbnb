@@ -1,6 +1,14 @@
 # airbnb
 Building a website like Airbnb in React
 
+# Technologies
+
+- React 19
+- React Leaflet
+- BootStrap
+- BootStrap Icon
+- Reactstrap
+
 # Commands
 
 ````
