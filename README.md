@@ -1,14 +1,67 @@
-# airbnb
+# Interactive Map & Region-Based Filtering
 
-Building a website like Airbnb in React + TypeScript + 
+The project includes dynamic map controls, multi-region selection, responsive property cards, and real-time map filtering.
 
-# Technologies
+This project demonstrates a practical use of geospatial UI/UX, combining map visualization, custom markers, and filterable datasets to create a smooth and highly interactive browsing experience.
 
-- React 19
-- React Leaflet
-- BootStrap
-- BootStrap Icon
-- Reactstrap
+# 🚀 Purpose of the Project
+
+- Interactive map UX patterns
+- Region-based geospatial filtering
+- Integration of Leaflet with a modern React app
+- Smooth client-side filtering of large datasets
+- Designing components that sync map state + UI state
+
+## It serves as a strong template for
+
+- Real estate apps
+- Airbnb-style property listings
+- Geospatial dashboards
+- Tourism or business location directories
+- Any project requiring filtering on a map
+
+
+# ✨ Features
+
+## 🗺️ Interactive Leaflet Map
+
+- Clean, responsive, and fast map using React-Leaflet
+- Custom markers with hover effects
+- Smooth zoom + pan animations
+- Adjustable light/dark mode support
+- Dynamic reset-view and "locate me" map tools
+
+## 📍 Region-Based Filtering
+
+- Multi-select region filter with checkboxes
+- Ability to combine Lisbon, Porto, Faro, etc.
+- "All regions" option with automatic zoom reset
+- Map automatically fits bounds of selected regions
+
+## 🧭 Smart Auto-Zoom Behavior
+
+- Selecting All zooms to a national view (zoom 7)
+- Selecting specific areas zooms to show all chosen regions
+- Map center & zoom stored in global context
+
+## 🛏️ Property Cards (Airbnb-style)
+
+- Clean grid layout with responsive mobile support
+- Superhost badge
+- Heart/favorite system with local state
+- Hover highlight synced with map markers
+- Old & new pricing display
+
+# 🧰 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| React	| Frontend UI framework |
+| React-Leaflet |	Map engine |
+| Leaflet	| Geospatial rendering & marker system |
+| Reactstrap | UI components |
+| Context API	| Global state management |
+| CSS	| Styling & layout |
 
 # Commands
 
