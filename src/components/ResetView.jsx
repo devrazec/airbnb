@@ -4,6 +4,7 @@ import { useEffect, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 
 const ResetView = () => {
+
   const map = useMap();
 
   const {
@@ -59,7 +60,10 @@ const ResetView = () => {
 
     btn.onclick = e => {
       e.preventDefault();
-      map.setView(initialView, zoomView, { animate: true });
+      //map.setView(initialView, zoomView, { animate: true });
+      setSelectedRegion(['All']);
+      setZoomView(7); // your preferred zoom for "All"
+      setInitialView([39.3999, -8.2245]);
     };
 
     // Cleanup — remove only our button

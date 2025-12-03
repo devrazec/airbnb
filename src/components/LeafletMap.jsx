@@ -41,15 +41,6 @@ const LeafletMap = () => {
 
   const cardStyle = darkMode ? { background: '#222', color: '#fff' } : {};
 
-  const createBlinkIcon = (color = '#ff0000') => {
-    return L.divIcon({
-      className: 'blinking-marker',
-      html: `<div class="marker-circle" style="background-color: ${color}"></div>`,
-      iconSize: [16, 16],
-      iconAnchor: [8, 8],
-    });
-  };
-
   return (
     <div className="container">
       <div className="card shadow border-0">
