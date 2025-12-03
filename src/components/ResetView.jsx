@@ -59,10 +59,10 @@ const ResetView = () => {
 
     btn.onclick = e => {
       e.preventDefault();
-      //map.setView(initialView, zoomView, { animate: true });
       setSelectedRegion(['All']);
       setZoomView(7); // your preferred zoom for "All"
       setInitialView([39.3999, -8.2245]);
+      map.setView(initialView, zoomView, { animate: true });
     };
 
     // Cleanup — remove only our button
