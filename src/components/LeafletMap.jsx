@@ -6,6 +6,8 @@ import 'leaflet-draw/dist/leaflet.draw.css';
 import ResetView from './ResetView';
 import ShowMyLocation from './ShowMyLocation';
 import MaskLayer from './MaskLayer';
+import ItemMarker from './ItemMarker';
+import Filter from './Filter';
 
 import { GlobalContext } from '../context/GlobalContext';
 
@@ -15,6 +17,7 @@ const INITIAL_CENTER = [39.5, -8];
 const INITIAL_ZOOM = 7;
 
 const LeafletMap = () => {
+
   const regions = {
     All: L.latLngBounds([
       [38.7, -9.5],
@@ -47,6 +50,8 @@ const LeafletMap = () => {
     setFlagOpen,
     flag,
     setFlag,
+    hoveredId, setHoveredId,
+    region, setRegion,
   } = useContext(GlobalContext);
 
   const cardStyle = darkMode ? { background: '#222', color: '#fff' } : {};
@@ -72,7 +77,7 @@ const LeafletMap = () => {
             className="w-100"
             style={{
               height: '85vh',
-              borderRadius: '1.5rem 1.5rem 1.5rem 1.5rem',
+              borderRadius: '1rem 1rem 1rem 1rem',
             }}
           >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -80,51 +85,10 @@ const LeafletMap = () => {
             {/* Controls */}
             <ResetView center={[39.3999, -8.2245]} zoom={7} />
             <ShowMyLocation />
-
-            {/* Markers */}
-            {markerGeo.map(m => (
-              <Marker
-                key={m.id}
-                position={[m.lat, m.lng]}
-                icon={createBlinkIcon(m.color)}
-              >
-                <Popup>
-                  <div
-                    className="card shadow-sm border-0 rounded-3 overflow-hidden"
-                    style={{ width: '15rem' }}
-                    data-aos="fade-up"
-                  >
-                    <div className="position-relative">
-                      <img
-                        src={m.image}
-                        alt={m.name}
-                        className="card-img-top"
-                        style={{
-                          height: '120px',
-                          objectFit: 'cover',
-                        }}
-                      />
-                    </div>
-
-                    <div className="card-body p-3">
-                      <h5 className="card-title fw-semibold text-center mb-3">
-                        {m.name}
-                      </h5>
-
-                      <button
-                        className="btn btn-primary w-100 btn-sm d-flex align-items-center justify-content-center gap-2"
-                        onClick={() => window.open(m.link, '_blank')}
-                      >
-                        <i className="bi bi-box-arrow-up-right"></i>
-                        Learn More
-                      </button>
-                    </div>
-                  </div>
-                </Popup>
-              </Marker>
-            ))}
-
+            <ItemMarker />
             <MaskLayer />
+            <Filter regions={regions} />
+
           </MapContainer>
         </div>
       </div>

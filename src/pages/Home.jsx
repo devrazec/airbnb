@@ -20,6 +20,7 @@ import {
 } from 'reactstrap';
 
 import LeafletMap from '../components/LeafletMap';
+import AddItem from '../components/AddItem';
 
 import { GlobalContext } from '../context/GlobalContext';
 
@@ -37,6 +38,7 @@ export function Home() {
     setFlagOpen,
     flag,
     setFlag,
+    region, setRegion,
   } = useContext(GlobalContext);
 
   return (
@@ -160,75 +162,6 @@ export function Home() {
         </div>
       </Navbar>
 
-      {/* Filter Modal */}
-
-      <Modal
-        isOpen={filterOpen}
-        style={{ overflow: 'hidden' }}
-        contentClassName="rounded-modal"
-        toggle={() => setFilterOpen(!filterOpen)}
-        centered
-      >
-        <ModalHeader
-          close={
-            <button
-              type="button"
-              className="custom-close-btn"
-              onClick={() => setFilterOpen(!filterOpen)}
-            >
-              &times;
-            </button>
-          }
-          className="modal-header-centered"
-          toggle={() => setFilterOpen(!filterOpen)}
-        >
-          Modal title
-        </ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-          <br />
-          <br />
-          <Input
-            type="text"
-            placeholder="Search..."
-            style={{ borderRadius: '10px' }}
-          />
-          <Input
-            type="select"
-            multiple
-            style={{ minHeight: '70px', borderRadius: '10px' }}
-          >
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-          </Input>
-          <FormGroup check>
-            <Input type="checkbox" id="filterCheck" />
-            <Label for="filterCheck" className="ms-1">
-              Checkbox
-            </Label>
-          </FormGroup>
-        </ModalBody>
-        <ModalFooter className="d-flex justify-content-between">
-          <Button
-            color="link"
-            onClick={() => setFilterOpen(!filterOpen)}
-            style={{ textDecoration: 'none' }}
-          >
-            Clear all
-          </Button>
-          <Button color="secondary" onClick={() => setFilterOpen(!filterOpen)}>
-            Close
-          </Button>
-        </ModalFooter>
-      </Modal>
-
       {/* Main Content */}
       <Container fluid className="mt-3 flex-grow-1">
         <Row className="h-100">
@@ -237,8 +170,9 @@ export function Home() {
             className="border-end overflow-auto"
             style={{ height: '85vh' }}
           >
-            <h5>Results</h5>
-            <p>List items go here...</p>
+            <p>Over 1,000 homes</p>
+
+            <AddItem />
           </Col>
 
           <Col md="6" style={{ height: '85vh' }}>

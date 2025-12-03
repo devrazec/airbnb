@@ -19,6 +19,7 @@ const MaskLayer = () => {
     setFlagOpen,
     flag,
     setFlag,
+    region, setRegion,
   } = useContext(GlobalContext);
 
   useEffect(() => {

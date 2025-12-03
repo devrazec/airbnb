@@ -17,16 +17,85 @@
 }
 
 .custom-close-btn {
-  padding: 10; /* remove default padding */
-  margin: 0; /* remove default margin */
-  font-size: 1.8rem; /* smaller close button */
+  padding: 10;
+  /* remove default padding */
+  margin: 0;
+  /* remove default margin */
+  font-size: 1.8rem;
+  /* smaller close button */
   width: auto;
   height: auto;
   line-height: 1;
   position: absolute;
-  right: 10px; /* 10px from the right */
+  right: 10px;
+  /* 10px from the right */
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
   border: none;
+}
+
+.card-airbnb {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-airbnb:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-airbnb img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.heart-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: white;
+  border-radius: 50%;
+  padding-left: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  stroke-width: 2;
+  fill: rgba(0, 0, 0, 0.5);
+  height: 24px;
+  width: 24px;
+  stroke: white;
+}
+
+.heart-btn:hover {
+  transform: scale(1.15);
+}
+
+.superhost-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.airbnb-price-marker {
+  color: 'black';
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.airbnb-price-marker:hover {
+  transform: scale(1.08);
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  padding: 0 !important;
 }
