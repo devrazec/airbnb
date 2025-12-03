@@ -4,7 +4,6 @@ import { useEffect, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 
 const ResetView = () => {
-
   const map = useMap();
 
   const {
