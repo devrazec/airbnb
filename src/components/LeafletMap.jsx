@@ -13,29 +13,7 @@ import { GlobalContext } from '../context/GlobalContext';
 
 import L from 'leaflet';
 
-const INITIAL_CENTER = [39.5, -8];
-const INITIAL_ZOOM = 7;
-
 const LeafletMap = () => {
-  const regions = {
-    All: L.latLngBounds([
-      [38.7, -9.5],
-      [41.2, -7.5],
-    ]),
-    Lisbon: L.latLngBounds([
-      [38.69, -9.25],
-      [38.82, -9.05],
-    ]),
-    Porto: L.latLngBounds([
-      [41.11, -8.74],
-      [41.19, -8.53],
-    ]),
-    Faro: L.latLngBounds([
-      [37.0, -8.1],
-      [37.2, -7.8],
-    ]),
-  };
-
   const {
     darkMode,
     setDarkMode,
@@ -53,6 +31,12 @@ const LeafletMap = () => {
     setHoveredId,
     region,
     setRegion,
+    selectedRegion,
+    setSelectedRegion,
+    zoomView,
+    setZoomView,
+    initialView,
+    setInitialView,
   } = useContext(GlobalContext);
 
   const cardStyle = darkMode ? { background: '#222', color: '#fff' } : {};
@@ -71,8 +55,8 @@ const LeafletMap = () => {
       <div className="card shadow border-0">
         <div className="card-body p-0">
           <MapContainer
-            center={INITIAL_CENTER}
-            zoom={INITIAL_ZOOM}
+            center={initialView}
+            zoom={zoomView}
             scrollWheelZoom={true}
             zoomControl={true}
             className="w-100"
@@ -84,11 +68,11 @@ const LeafletMap = () => {
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
             {/* Controls */}
-            <ResetView center={[39.3999, -8.2245]} zoom={7} />
+            <ResetView />
             <ShowMyLocation />
             <ItemMarker />
             <MaskLayer />
-            <Filter regions={regions} />
+            <Filter />
           </MapContainer>
         </div>
       </div>

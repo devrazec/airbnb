@@ -26,20 +26,28 @@ import { GlobalContext } from '../context/GlobalContext';
 
 export function Home() {
   const {
-    //darkMode,
-    //setDarkMode,
-    //markerGeo,
-    //setMarkerGeo,
-    //portugalGeo,
-    //setPortugalGeo,
+    darkMode,
+    setDarkMode,
+    markerGeo,
+    setMarkerGeo,
+    portugalGeo,
+    setPortugalGeo,
     filterOpen,
     setFilterOpen,
     flagOpen,
     setFlagOpen,
     flag,
     setFlag,
+    hoveredId,
+    setHoveredId,
     region,
     setRegion,
+    selectedRegion,
+    setSelectedRegion,
+    zoomView,
+    setZoomView,
+    initialView,
+    setInitialView,
   } = useContext(GlobalContext);
 
   return (

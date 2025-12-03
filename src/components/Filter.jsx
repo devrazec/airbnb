@@ -25,12 +25,12 @@ const Filter = () => {
   const map = useMap();
 
   const {
-    //darkMode,
-    //setDarkMode,
+    darkMode,
+    setDarkMode,
     markerGeo,
     setMarkerGeo,
-    //portugalGeo,
-    //setPortugalGeo,
+    portugalGeo,
+    setPortugalGeo,
     filterOpen,
     setFilterOpen,
     flagOpen,
@@ -43,6 +43,10 @@ const Filter = () => {
     setRegion,
     selectedRegion,
     setSelectedRegion,
+    zoomView,
+    setZoomView,
+    initialView,
+    setInitialView,
   } = useContext(GlobalContext);
 
   // Handle checkbox change

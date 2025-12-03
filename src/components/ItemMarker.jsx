@@ -31,8 +31,30 @@ const createPriceIcon = (item, isHovered) => {
 };
 
 const ItemMarker = () => {
-  const { markerGeo, hoveredId, setHoveredId, region, setRegion } =
-    useContext(GlobalContext);
+  const {
+    darkMode,
+    setDarkMode,
+    markerGeo,
+    setMarkerGeo,
+    portugalGeo,
+    setPortugalGeo,
+    filterOpen,
+    setFilterOpen,
+    flagOpen,
+    setFlagOpen,
+    flag,
+    setFlag,
+    hoveredId,
+    setHoveredId,
+    region,
+    setRegion,
+    selectedRegion,
+    setSelectedRegion,
+    zoomView,
+    setZoomView,
+    initialView,
+    setInitialView,
+  } = useContext(GlobalContext);
 
   return (
     <>

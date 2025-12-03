@@ -3,8 +3,33 @@ import L from 'leaflet';
 import { useEffect, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 
-const ResetView = ({ center, zoom }) => {
+const ResetView = () => {
   const map = useMap();
+
+  const {
+    darkMode,
+    setDarkMode,
+    markerGeo,
+    setMarkerGeo,
+    portugalGeo,
+    setPortugalGeo,
+    filterOpen,
+    setFilterOpen,
+    flagOpen,
+    setFlagOpen,
+    flag,
+    setFlag,
+    hoveredId,
+    setHoveredId,
+    region,
+    setRegion,
+    selectedRegion,
+    setSelectedRegion,
+    zoomView,
+    setZoomView,
+    initialView,
+    setInitialView,
+  } = useContext(GlobalContext);
 
   useEffect(() => {
     // Find the existing zoom control container
@@ -34,7 +59,7 @@ const ResetView = ({ center, zoom }) => {
 
     btn.onclick = e => {
       e.preventDefault();
-      map.setView(center, zoom, { animate: true });
+      map.setView(initialView, zoomView, { animate: true });
     };
 
     // Cleanup — remove only our button
@@ -43,7 +68,7 @@ const ResetView = ({ center, zoom }) => {
         zoomControl.removeChild(btn);
       }
     };
-  }, [map, center, zoom]);
+  }, [map, initialView, zoomView]);
 
   return null;
 };

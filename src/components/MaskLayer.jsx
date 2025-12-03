@@ -19,8 +19,16 @@ const MaskLayer = () => {
     setFlagOpen,
     flag,
     setFlag,
+    hoveredId,
+    setHoveredId,
     region,
     setRegion,
+    selectedRegion,
+    setSelectedRegion,
+    zoomView,
+    setZoomView,
+    initialView,
+    setInitialView,
   } = useContext(GlobalContext);
 
   useEffect(() => {

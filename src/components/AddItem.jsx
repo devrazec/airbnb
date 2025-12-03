@@ -12,10 +12,28 @@ import {
 
 const AddItem = () => {
   const {
+    darkMode,
+    setDarkMode,
     markerGeo,
+    setMarkerGeo,
+    portugalGeo,
+    setPortugalGeo,
+    filterOpen,
+    setFilterOpen,
+    flagOpen,
+    setFlagOpen,
+    flag,
+    setFlag,
     hoveredId,
     setHoveredId,
-    selectedRegion, // use this instead of `region`
+    region,
+    setRegion,
+    selectedRegion,
+    setSelectedRegion,
+    zoomView,
+    setZoomView,
+    initialView,
+    setInitialView,
   } = useContext(GlobalContext);
 
   const [favorites, setFavorites] = useState([]);

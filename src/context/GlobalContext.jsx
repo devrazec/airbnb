@@ -14,7 +14,7 @@ const GlobalProvider = props => {
   const [hoveredId, setHoveredId] = useState(null);
   const [region, setRegion] = useState({
     All: L.latLngBounds([
-      [38.7, -9.5],
+      [39.5, -8],
       [41.2, -7.5],
     ]),
     Lisbon: L.latLngBounds([
@@ -31,6 +31,8 @@ const GlobalProvider = props => {
     ]),
   });
   const [selectedRegion, setSelectedRegion] = useState(['All']);
+  const [zoomView, setZoomView] = useState(7);
+  const [initialView, setInitialView] = useState([39.3999, -8.2245]);
 
   return (
     <GlobalContext.Provider
@@ -53,6 +55,10 @@ const GlobalProvider = props => {
         setRegion,
         selectedRegion,
         setSelectedRegion,
+        zoomView,
+        setZoomView,
+        initialView,
+        setInitialView,
       }}
     >
       {props.children}
