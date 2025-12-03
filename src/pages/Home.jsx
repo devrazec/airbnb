@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -19,18 +19,25 @@ import {
   ModalFooter,
 } from 'reactstrap';
 
+import LeafletMap from '../components/LeafletMap';
+
+import { GlobalContext } from '../context/GlobalContext';
+
 export function Home() {
-  const [flag, setFlag] = useState<string>('us');
-
-  const [modalOpen, setModalOpen] = useState(false);
-  const toggleModal = () => setModalOpen(!modalOpen);
-  const [open, setOpen] = useState(false);
-  const toggle = () => setOpen(!open);
-
-  const handleSelect = (code: string) => {
-    setFlag(code);
-    setOpen(false); // close dropdown after selection
-  };
+  const {
+    //darkMode,
+    //setDarkMode,
+    //markerGeo,
+    //setMarkerGeo,
+    //portugalGeo,
+    //setPortugalGeo,
+    filterOpen,
+    setFilterOpen,
+    flagOpen,
+    setFlagOpen,
+    flag,
+    setFlag,
+  } = useContext(GlobalContext);
 
   return (
     <div className="min-vh-100 d-flex flex-column position-relative">
@@ -59,7 +66,7 @@ export function Home() {
               boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
               borderColor: '#ddd',
             }}
-            onClick={toggleModal}
+            onClick={() => setFilterOpen(!filterOpen)}
           >
             <i className="bi bi-sliders" style={{ fontSize: '20px' }}></i>
             Filters
@@ -67,7 +74,11 @@ export function Home() {
         </div>
 
         <div className="d-flex align-items-center">
-          <Dropdown isOpen={open} toggle={toggle} className="me-2">
+          <Dropdown
+            isOpen={flagOpen}
+            toggle={() => setFlagOpen(!flagOpen)}
+            className="me-2"
+          >
             <DropdownToggle
               color="secondary"
               className="rounded-circle d-flex justify-content-center align-items-center border"
@@ -106,13 +117,13 @@ export function Home() {
                 overflowY: 'auto', // scroll if content exceeds maxHeight
               }}
             >
-              <DropdownItem onClick={() => handleSelect('us')}>
+              <DropdownItem onClick={() => setFlag('us')}>
                 <i className="fi fi-us"></i> EN
               </DropdownItem>
-              <DropdownItem onClick={() => handleSelect('pt')}>
+              <DropdownItem onClick={() => setFlag('pt')}>
                 <i className="fi fi-pt"></i> PT
               </DropdownItem>
-              <DropdownItem onClick={() => handleSelect('es')}>
+              <DropdownItem onClick={() => setFlag('es')}>
                 <i className="fi fi-es"></i> ES
               </DropdownItem>
             </DropdownMenu>
@@ -152,10 +163,10 @@ export function Home() {
       {/* Filter Modal */}
 
       <Modal
-        isOpen={modalOpen}
+        isOpen={filterOpen}
         style={{ overflow: 'hidden' }}
         contentClassName="rounded-modal"
-        toggle={toggleModal}
+        toggle={() => setFilterOpen(!filterOpen)}
         centered
       >
         <ModalHeader
@@ -163,13 +174,13 @@ export function Home() {
             <button
               type="button"
               className="custom-close-btn"
-              onClick={toggleModal}
+              onClick={() => setFilterOpen(!filterOpen)}
             >
               &times;
             </button>
           }
           className="modal-header-centered"
-          toggle={toggleModal}
+          toggle={() => setFilterOpen(!filterOpen)}
         >
           Modal title
         </ModalHeader>
@@ -207,12 +218,12 @@ export function Home() {
         <ModalFooter className="d-flex justify-content-between">
           <Button
             color="link"
-            onClick={toggleModal}
+            onClick={() => setFilterOpen(!filterOpen)}
             style={{ textDecoration: 'none' }}
           >
             Clear all
           </Button>
-          <Button color="secondary" onClick={toggleModal}>
+          <Button color="secondary" onClick={() => setFilterOpen(!filterOpen)}>
             Close
           </Button>
         </ModalFooter>
@@ -231,15 +242,7 @@ export function Home() {
           </Col>
 
           <Col md="6" style={{ height: '85vh' }}>
-            <iframe
-              title="Google Map"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              style={{ border: 0 }}
-              src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Portugal"
-              allowFullScreen
-            ></iframe>
+            <LeafletMap />
           </Col>
         </Row>
       </Container>

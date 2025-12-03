@@ -1,5 +1,6 @@
 # airbnb
-Building a website like Airbnb in React
+
+Building a website like Airbnb in React + TypeScript + 
 
 # Technologies
 
