@@ -1,21 +1,28 @@
 import { useState, useContext, useMemo } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
-import { Row, Col, Card, CardBody, CardImg, CardTitle, CardText } from 'reactstrap';
+import {
+  Row,
+  Col,
+  Card,
+  CardBody,
+  CardImg,
+  CardTitle,
+  CardText,
+} from 'reactstrap';
 
 const AddItem = () => {
   const {
     markerGeo,
-    hoveredId, setHoveredId,
+    hoveredId,
+    setHoveredId,
     selectedRegion, // use this instead of `region`
   } = useContext(GlobalContext);
 
   const [favorites, setFavorites] = useState([]);
 
-  const toggleFavorite = (id) => {
+  const toggleFavorite = id => {
     setFavorites(prev =>
-      prev.includes(id)
-        ? prev.filter(f => f !== id)
-        : [...prev, id]
+      prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]
     );
   };
 
@@ -31,25 +38,40 @@ const AddItem = () => {
       {filteredItems.map(item => (
         <Col md="4" sm="6" xs="12" key={item.id} className="mb-4">
           <Card
-            className={`card-airbnb shadow-sm position-relative ${hoveredId === item.id ? "card-airbnb-hovered" : ""}`}
+            className={`card-airbnb shadow-sm position-relative ${hoveredId === item.id ? 'card-airbnb-hovered' : ''}`}
             onMouseEnter={() => setHoveredId(item.id)}
             onMouseLeave={() => setHoveredId(null)}
           >
             <div className="superhost-badge">Superhost</div>
 
             <div className="heart-btn" onClick={() => toggleFavorite(item.id)}>
-              {favorites.includes(item.id) ? "❤️" : "🤍"}
+              {favorites.includes(item.id) ? '❤️' : '🤍'}
             </div>
 
             <CardImg top src={item.image} alt={item.title} />
 
             <CardBody>
-              <CardTitle tag="h5" className="fw-bold">{item.title}</CardTitle>
+              <CardTitle tag="h5" className="fw-bold">
+                {item.title}
+              </CardTitle>
 
               <CardText className="text-muted">{item.description}</CardText>
 
               <CardText>
-                <span style={{ textDecoration: "line-through", color: "#777" }}> {item.oldprice} </span> <span style={{ paddingLeft: "10px", fontWeight: "bold", fontSize: "1.2rem" }}> {item.price} </span>
+                <span style={{ textDecoration: 'line-through', color: '#777' }}>
+                  {' '}
+                  {item.oldprice}{' '}
+                </span>{' '}
+                <span
+                  style={{
+                    paddingLeft: '10px',
+                    fontWeight: 'bold',
+                    fontSize: '1.2rem',
+                  }}
+                >
+                  {' '}
+                  {item.price}{' '}
+                </span>
               </CardText>
             </CardBody>
           </Card>

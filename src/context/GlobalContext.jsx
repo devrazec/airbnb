@@ -12,26 +12,24 @@ const GlobalProvider = props => {
   const [flagOpen, setFlagOpen] = useState(false);
   const [flag, setFlag] = useState('us');
   const [hoveredId, setHoveredId] = useState(null);
-  const [region, setRegion] = useState(
-    {
-      All: L.latLngBounds([
-        [38.7, -9.5],
-        [41.2, -7.5],
-      ]),
-      Lisbon: L.latLngBounds([
-        [38.69, -9.25],
-        [38.82, -9.05],
-      ]),
-      Porto: L.latLngBounds([
-        [41.11, -8.74],
-        [41.19, -8.53],
-      ]),
-      Faro: L.latLngBounds([
-        [37.0, -8.1],
-        [37.2, -7.8],
-      ]),
-    }
-  );
+  const [region, setRegion] = useState({
+    All: L.latLngBounds([
+      [38.7, -9.5],
+      [41.2, -7.5],
+    ]),
+    Lisbon: L.latLngBounds([
+      [38.69, -9.25],
+      [38.82, -9.05],
+    ]),
+    Porto: L.latLngBounds([
+      [41.11, -8.74],
+      [41.19, -8.53],
+    ]),
+    Faro: L.latLngBounds([
+      [37.0, -8.1],
+      [37.2, -7.8],
+    ]),
+  });
   const [selectedRegion, setSelectedRegion] = useState(['All']);
 
   return (
@@ -49,9 +47,12 @@ const GlobalProvider = props => {
         setFlagOpen,
         flag,
         setFlag,
-        hoveredId, setHoveredId,
-        region, setRegion,
-        selectedRegion, setSelectedRegion,
+        hoveredId,
+        setHoveredId,
+        region,
+        setRegion,
+        selectedRegion,
+        setSelectedRegion,
       }}
     >
       {props.children}

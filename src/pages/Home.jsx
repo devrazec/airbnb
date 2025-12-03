@@ -38,7 +38,8 @@ export function Home() {
     setFlagOpen,
     flag,
     setFlag,
-    region, setRegion,
+    region,
+    setRegion,
   } = useContext(GlobalContext);
 
   return (

@@ -1,7 +1,15 @@
 import React, { useContext } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { Row, Col, Card, CardBody, CardImg, CardTitle, CardText } from 'reactstrap';
+import {
+  Row,
+  Col,
+  Card,
+  CardBody,
+  CardImg,
+  CardTitle,
+  CardText,
+} from 'reactstrap';
 
 import { GlobalContext } from '../context/GlobalContext';
 
@@ -18,16 +26,13 @@ const createPriceIcon = (item, isHovered) => {
       border:1px solid rgba(0,0,0,0.1);
     ">${item.price}</div>`,
     iconSize: [50, 30],
-    iconAnchor: [25, 15]
+    iconAnchor: [25, 15],
   });
 };
 
 const ItemMarker = () => {
-  const {
-    markerGeo,
-    hoveredId, setHoveredId,
-    region, setRegion,
-  } = useContext(GlobalContext);
+  const { markerGeo, hoveredId, setHoveredId, region, setRegion } =
+    useContext(GlobalContext);
 
   return (
     <>
@@ -42,33 +47,39 @@ const ItemMarker = () => {
           }}
         >
           <Popup minWidth={200} maxWidth={260}>
-            <Card className="border-0" style={{ width: "14rem" }}>
+            <Card className="border-0" style={{ width: '14rem' }}>
               <CardImg
                 top
                 src={item.image}
                 alt={item.title}
-                style={{ height: "160px", objectFit: "cover" }}
+                style={{ height: '160px', objectFit: 'cover' }}
               />
 
               <CardBody className="p-2">
-                <CardTitle tag="h5" className="mb-2" style={{ fontSize: "1rem" }}>
+                <CardTitle
+                  tag="h5"
+                  className="mb-2"
+                  style={{ fontSize: '1rem' }}
+                >
                   {item.title}
                 </CardTitle>
 
-                <CardText className="text-muted" style={{ fontSize: ".85rem" }}>
+                <CardText className="text-muted" style={{ fontSize: '.85rem' }}>
                   {item.description}
                 </CardText>
 
                 <div>
-                  <span style={{ textDecoration: "line-through", color: "#777" }}>
+                  <span
+                    style={{ textDecoration: 'line-through', color: '#777' }}
+                  >
                     {item.oldprice}
                   </span>
 
                   <span
                     style={{
-                      paddingLeft: "10px",
-                      fontWeight: "bold",
-                      fontSize: "1.1rem"
+                      paddingLeft: '10px',
+                      fontWeight: 'bold',
+                      fontSize: '1.1rem',
                     }}
                   >
                     {item.price}

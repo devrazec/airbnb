@@ -17,7 +17,6 @@ const INITIAL_CENTER = [39.5, -8];
 const INITIAL_ZOOM = 7;
 
 const LeafletMap = () => {
-
   const regions = {
     All: L.latLngBounds([
       [38.7, -9.5],
@@ -50,8 +49,10 @@ const LeafletMap = () => {
     setFlagOpen,
     flag,
     setFlag,
-    hoveredId, setHoveredId,
-    region, setRegion,
+    hoveredId,
+    setHoveredId,
+    region,
+    setRegion,
   } = useContext(GlobalContext);
 
   const cardStyle = darkMode ? { background: '#222', color: '#fff' } : {};
@@ -88,7 +89,6 @@ const LeafletMap = () => {
             <ItemMarker />
             <MaskLayer />
             <Filter regions={regions} />
-
           </MapContainer>
         </div>
       </div>

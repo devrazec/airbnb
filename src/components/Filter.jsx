@@ -1,50 +1,52 @@
 import { useState, useEffect, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import {
-    Navbar,
-    NavbarBrand,
-    Button,
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    Container,
-    Row,
-    Col,
-    FormGroup,
-    Input,
-    Label,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
+  Navbar,
+  NavbarBrand,
+  Button,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Container,
+  Row,
+  Col,
+  FormGroup,
+  Input,
+  Label,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from 'reactstrap';
 import { useMap } from 'react-leaflet';
 
 const Filter = () => {
+  const map = useMap();
 
-    const map = useMap();
-
-    const {
-        //darkMode,
-        //setDarkMode,
-        markerGeo,
-        setMarkerGeo,
-        //portugalGeo,
-        //setPortugalGeo,
-        filterOpen,
-        setFilterOpen,
-        flagOpen,
-        setFlagOpen,
-        flag,
-        setFlag,
-        hoveredId, setHoveredId,
-        region, setRegion,
-        selectedRegion, setSelectedRegion
-    } = useContext(GlobalContext);
+  const {
+    //darkMode,
+    //setDarkMode,
+    markerGeo,
+    setMarkerGeo,
+    //portugalGeo,
+    //setPortugalGeo,
+    filterOpen,
+    setFilterOpen,
+    flagOpen,
+    setFlagOpen,
+    flag,
+    setFlag,
+    hoveredId,
+    setHoveredId,
+    region,
+    setRegion,
+    selectedRegion,
+    setSelectedRegion,
+  } = useContext(GlobalContext);
 
   // Handle checkbox change
-  const handleCheckboxChange = (region) => {
+  const handleCheckboxChange = region => {
     if (region === 'All') {
       setSelectedRegion(['All']);
     } else {
@@ -72,7 +74,7 @@ const Filter = () => {
   }, [selectedRegion, map, region]);
 
   // Check if a region is selected
-  const isChecked = (region) => selectedRegion.includes(region);
+  const isChecked = region => selectedRegion.includes(region);
 
   return (
     <Modal
@@ -127,7 +129,7 @@ const Filter = () => {
         </Button>
       </ModalFooter>
     </Modal>
-    );
+  );
 };
 
 export default Filter;
